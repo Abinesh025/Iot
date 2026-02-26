@@ -1,34 +1,50 @@
 import { Link } from 'react-router-dom'
 
-export default function ModuleContent({ title, images, description, features, howItWorks, pinout, code }) {
+/**
+ * Determine the parent section label and path from the `backTo` prop.
+ * backTo.to examples:
+ *   /tutorial/arduino/modules      -> { label: 'Modules', to: '/tutorial/arduino/modules' }
+ *   /tutorial/arduino/connectivity -> { label: 'Connectivity', to: '/tutorial/arduino/connectivity' }
+ *   /tutorial/arduino/sensors      -> { label: 'Sensors', to: '/tutorial/arduino/sensors' }
+ */
+function resolveParent(backTo) {
+    const to = backTo?.to || '/tutorial/arduino/modules'
+    if (to.includes('/connectivity')) return { label: 'Connectivity', to: '/tutorial/arduino/connectivity' }
+    if (to.includes('/sensors')) return { label: 'Sensors', to: '/tutorial/arduino/sensors' }
+    return { label: 'Modules', to: '/tutorial/arduino/modules' }
+}
+
+export default function ModuleContent({ title, images, description, features, howItWorks, pinout, code, children, backTo }) {
+    const backLink = backTo || { label: 'Back to Modules', to: '/tutorial/arduino/modules' }
+    const parent = resolveParent(backTo)
+
     return (
         <article className="max-w-4xl">
             {/* ── Breadcrumb ── */}
+            <nav aria-label="Breadcrumb" className="flex items-center gap-1.5 text-sm text-surface-500 mb-8 flex-wrap">
+                {/* Home icon */}
+                <Link to="/" aria-label="Home" className="hover:text-primary-400 transition-colors inline-flex items-center">
+                    <svg width="16" height="16" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M16 7.609c.352 0 .69.122.96.343l.111.1 6.25 6.25v.001a1.5 1.5 0 0 1 .445 1.071v7.5a.89.89 0 0 1-.891.891H9.125a.89.89 0 0 1-.89-.89v-7.5l.006-.149a1.5 1.5 0 0 1 .337-.813l.1-.11 6.25-6.25c.285-.285.67-.444 1.072-.444Zm5.984 7.876L16 9.5l-5.984 5.985v6.499h11.968z" fill="currentColor" />
+                    </svg>
+                </Link>
 
-                    <div className="flex items-center gap-2 text-sm text-surface-500 mb-8 flex-wrap">
-            <button type="button" aria-label="Home" className="hover:text-primary-400 transition-colors">
-                <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M16 7.609c.352 0 .69.122.96.343l.111.1 6.25 6.25v.001a1.5 1.5 0 0 1 .445 1.071v7.5a.89.89 0 0 1-.891.891H9.125a.89.89 0 0 1-.89-.89v-7.5l.006-.149a1.5 1.5 0 0 1 .337-.813l.1-.11 6.25-6.25c.285-.285.67-.444 1.072-.444Zm5.984 7.876L16 9.5l-5.984 5.985v6.499h11.968z" fill="#475569" stroke="#475569" strokeWidth=".094"/>
-                </svg>
-            </button>
-            <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="m14.413 10.663-6.25 6.25a.939.939 0 1 1-1.328-1.328L12.42 10 6.836 4.413a.939.939 0 1 1 1.328-1.328l6.25 6.25a.94.94 0 0 1-.001 1.328" fill="#CBD5E1"/>
-            </svg>
-            <a href="#" className="hover:text-primary-400 transition-colors">Tutorial</a>
-            <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="m14.413 10.663-6.25 6.25a.939.939 0 1 1-1.328-1.328L12.42 10 6.836 4.413a.939.939 0 1 1 1.328-1.328l6.25 6.25a.94.94 0 0 1-.001 1.328" fill="#CBD5E1"/>
-            </svg>
-            <a href="#" className="hover:text-primary-400 transition-colors">Ardino</a>
-            <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="m14.413 10.663-6.25 6.25a.939.939 0 1 1-1.328-1.328L12.42 10 6.836 4.413a.939.939 0 1 1 1.328-1.328l6.25 6.25a.94.94 0 0 1-.001 1.328" fill="#CBD5E1"/>
-            </svg>
-            <a href="#" className="hover:text-primary-400 transition-colors">modules</a>
-            <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="m14.413 10.663-6.25 6.25a.939.939 0 1 1-1.328-1.328L12.42 10 6.836 4.413a.939.939 0 1 1 1.328-1.328l6.25 6.25a.94.94 0 0 1-.001 1.328" fill="#CBD5E1"/>
-            </svg>
-            <a href="#" className="text-indigo-500">{title}</a>
-        </div>
+                <ChevronIcon />
 
+                <Link to="/" className="hover:text-primary-400 transition-colors">Tutorials</Link>
+
+                <ChevronIcon />
+
+                <Link to="/tutorial/arduino" className="hover:text-primary-400 transition-colors">Arduino</Link>
+
+                <ChevronIcon />
+
+                <Link to={parent.to} className="hover:text-primary-400 transition-colors">{parent.label}</Link>
+
+                <ChevronIcon />
+
+                <span className="text-indigo-400 font-medium truncate max-w-[180px]">{title}</span>
+            </nav>
 
             {/* ── Title ── */}
             <h1 className="text-3xl sm:text-4xl font-bold text-surface-50 mb-6">
@@ -76,25 +92,24 @@ export default function ModuleContent({ title, images, description, features, ho
                 </section>
             )}
 
-            {/* ── How It Works ── */}
-            
-                               <section className="mb-10">
-                    <h2 className="text-xl font-semibold text-surface-100 mb-3 flex items-center gap-2">
-                        <span className="w-1 h-5 rounded-full bg-primary-400 inline-block" />
-                        How It Works
-                    </h2>
-                    {howItWorks && howItWorks.map((point,i)=>(
+            {/* ── Custom Sections (children) ── */}
+            {children}
 
-                                           <li className="flex items-start gap-3 text-surface-400">
-                                <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-arduino shrink-0" />
-                                <span className="leading-relaxed">{point.point}</span>
-                            </li>
-                    // <div className="p-5 rounded-xl bg-surface-900/40 border border-surface-800/50">
-                    //     <p className="text-surface-400 leading-relaxed">{howItWorks.point}</p>
-                    // </div>
-            )
-            )}
-             </section>
+            {/* ── How It Works ── */}
+            <section className="mb-10">
+                <h2 className="text-xl font-semibold text-surface-100 mb-3 flex items-center gap-2">
+                    <span className="w-1 h-5 rounded-full bg-primary-400 inline-block" />
+                    How It Works
+                </h2>
+                <ul className="space-y-2 pl-1">
+                    {howItWorks && howItWorks.map((point, i) => (
+                        <li key={i} className="flex items-start gap-3 text-surface-400">
+                            <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-arduino shrink-0" />
+                            <span className="leading-relaxed">{point.point}</span>
+                        </li>
+                    ))}
+                </ul>
+            </section>
 
             {/* ── Pinout ── */}
             {pinout && pinout.length > 0 && (
@@ -154,15 +169,23 @@ export default function ModuleContent({ title, images, description, features, ho
             {/* ── Bottom nav ── */}
             <div className="pt-6 border-t border-surface-800/50">
                 <Link
-                    to="/tutorial/arduino/modules"
+                    to={backLink.to}
                     className="inline-flex items-center gap-2 text-surface-400 hover:text-primary-400 font-medium transition-colors"
                 >
                     <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
                         <path strokeLinecap="round" strokeLinejoin="round" d="M11 17l-5-5m0 0l5-5m-5 5h12" />
                     </svg>
-                    Back to Modules
+                    {backLink.label}
                 </Link>
             </div>
         </article>
+    )
+}
+
+function ChevronIcon() {
+    return (
+        <svg width="14" height="14" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg" className="text-surface-700 shrink-0">
+            <path d="m14.413 10.663-6.25 6.25a.939.939 0 1 1-1.328-1.328L12.42 10 6.836 4.413a.939.939 0 1 1 1.328-1.328l6.25 6.25a.94.94 0 0 1-.001 1.328" fill="currentColor" />
+        </svg>
     )
 }

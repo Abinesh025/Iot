@@ -6,24 +6,28 @@ const projects = [
         desc: 'The classic first project — make an LED blink on and off. Learn about digital output and timing.',
         components: ['Arduino Uno', 'LED', '220Ω Resistor', 'Breadboard'],
         difficulty: 'Easy',
+        slug: 'led-blink',
     },
     {
         title: 'Traffic Light Simulator',
         desc: 'Build a miniature traffic light that cycles through red, yellow, and green LEDs with proper timing.',
         components: ['Arduino Uno', '3 LEDs (R/Y/G)', '3× 220Ω Resistor'],
         difficulty: 'Easy',
+        slug: 'traffic-light',
     },
     {
         title: 'Temperature Monitor',
         desc: 'Read temperature from a DHT11 sensor and display it on the Serial Monitor.',
         components: ['Arduino Uno', 'DHT11 Sensor', '10kΩ Resistor'],
         difficulty: 'Easy',
+        slug: 'temperature-monitor',
     },
     {
         title: 'Servo Sweep',
         desc: 'Control a servo motor to sweep back and forth. Introduction to PWM and the Servo library.',
         components: ['Arduino Uno', 'SG90 Servo Motor'],
         difficulty: 'Easy',
+        slug: 'servo-sweep',
     },
 ]
 
@@ -51,10 +55,14 @@ export default function ProjectsBeginner() {
 
             <div className="space-y-4">
                 {projects.map((p) => (
-                    <div key={p.title} className="p-5 rounded-xl bg-surface-900/40 border border-surface-800/50 hover:border-green-500/20 transition-colors">
+                    <Link
+                        key={p.title}
+                        to={`/tutorial/arduino/projects/beginner/${p.slug}`}
+                        className="block p-5 rounded-xl bg-surface-900/40 border border-surface-800/50 hover:border-green-500/30 hover:bg-surface-900/60 transition-all group"
+                    >
                         <div className="flex items-start justify-between gap-4">
                             <div>
-                                <h3 className="text-base font-semibold text-surface-50 mb-1">{p.title}</h3>
+                                <h3 className="text-base font-semibold text-surface-50 mb-1 group-hover:text-green-300 transition-colors">{p.title}</h3>
                                 <p className="text-surface-400 text-sm leading-relaxed mb-3">{p.desc}</p>
                                 <div className="flex flex-wrap gap-2">
                                     {p.components.map((c) => (
@@ -62,11 +70,14 @@ export default function ProjectsBeginner() {
                                     ))}
                                 </div>
                             </div>
-                            <span className="shrink-0 px-2.5 py-1 rounded-md bg-green-500/10 text-green-400 text-xs font-medium">
-                                {p.difficulty}
-                            </span>
+                            <div className="flex items-center gap-2 shrink-0">
+                                <span className="px-2.5 py-1 rounded-md bg-green-500/10 text-green-400 text-xs font-medium">
+                                    {p.difficulty}
+                                </span>
+                                <svg className="w-4 h-4 text-surface-600 group-hover:text-green-400 transition-colors" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}><path strokeLinecap="round" strokeLinejoin="round" d="M13 7l5 5m0 0l-5 5m5-5H6" /></svg>
+                            </div>
                         </div>
-                    </div>
+                    </Link>
                 ))}
             </div>
 

@@ -4,38 +4,32 @@ const sections = [
     {
         title: 'What is Arduino?',
         desc: 'Understand the Arduino ecosystem, its history, and why it\'s the go-to platform for beginners.',
-        to: '/tutorial/arduino/what-is-arduino',
-        icon: '💡',
+        to: '/tutorial/arduino/what-is-arduino'
     },
     {
         title: 'Arduino Modules',
         desc: 'Explore motors, relays, displays, and other hardware modules compatible with Arduino.',
-        to: '/tutorial/arduino/modules',
-        icon: '🔧',
+        to: '/tutorial/arduino/modules'
     },
     {
         title: 'Arduino Sensors',
         desc: 'Learn to interface temperature, humidity, ultrasonic, IR, and many more sensors.',
-        to: '/tutorial/arduino/sensors',
-        icon: '📡',
+        to: '/tutorial/arduino/sensors'
     },
     {
         title: 'Connectivity',
         desc: 'Connect your Arduino to WiFi, Bluetooth, LoRa, and the cloud.',
-        to: '/tutorial/arduino/connectivity',
-        icon: '🌐',
+        to: '/tutorial/arduino/connectivity'
     },
     {
         title: 'Installation Guide',
         desc: 'Set up the Arduino IDE on Windows, Linux, or macOS in minutes.',
-        to: '/tutorial/arduino/install/windows',
-        icon: '⚙️',
+        to: '/tutorial/arduino/install/windows'
     },
     {
         title: 'Projects',
         desc: 'Build hands-on projects from beginner blinkers to advanced IoT systems.',
-        to: '/tutorial/arduino/projects/beginner',
-        icon: '🚀',
+        to: '/tutorial/arduino/projects/beginner'
     },
 ]
 
@@ -65,7 +59,7 @@ export default function ArduinoHome() {
                         to={s.to}
                         className="group p-5 rounded-xl bg-surface-900/40 border border-surface-800/50 hover:border-arduino/30 hover:bg-surface-800/30 transition-all duration-200"
                     >
-                        <div className="text-2xl mb-3">{s.icon}</div>
+                        <div className="text-2xl mb-3"></div>
                         <h3 className="text-base font-semibold text-surface-50 mb-1 group-hover:text-arduino transition-colors">
                             {s.title}
                         </h3>

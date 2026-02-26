@@ -18,8 +18,26 @@ const menuConfigs = {
                     { label: "Arduino Ultrasonic Sensor (HC-SR04)", to: "/tutorial/arduino/modules/ultrasonic" }
                 ]
             },
-            { label: 'Sensors', to: '/tutorial/arduino/sensors' },
-            { label: 'Connectivity', to: '/tutorial/arduino/connectivity' },
+            {
+                label: 'Sensors',
+                children: [
+                    { label: 'DHT11 / DHT22', to: '/tutorial/arduino/sensors/dht' },
+                    { label: 'BME280 Environmental', to: '/tutorial/arduino/sensors/bme280' },
+                    { label: 'DS18B20 Temperature', to: '/tutorial/arduino/sensors/ds18b20' },
+                    { label: 'MQ-2 Gas / Smoke', to: '/tutorial/arduino/sensors/mq2' },
+                    { label: 'MPU-6050 Motion', to: '/tutorial/arduino/sensors/mpu6050' },
+                ]
+            },
+            {
+                label: 'Connectivity',
+                children: [
+                    { label: 'WiFi (ESP8266)', to: '/tutorial/arduino/connectivity/wifi' },
+                    { label: 'Bluetooth (HC-05)', to: '/tutorial/arduino/connectivity/bluetooth' },
+                    { label: 'BLE (HM-10)', to: '/tutorial/arduino/connectivity/ble' },
+                    { label: 'LoRa (SX1278)', to: '/tutorial/arduino/connectivity/lora' },
+                    { label: 'Ethernet (W5100)', to: '/tutorial/arduino/connectivity/ethernet' },
+                ],
+            },
             {
                 label: 'Installation',
                 children: [
@@ -31,9 +49,36 @@ const menuConfigs = {
             {
                 label: 'Projects',
                 children: [
-                    { label: 'Beginner', to: '/tutorial/arduino/projects/beginner' },
-                    { label: 'Intermediate', to: '/tutorial/arduino/projects/intermediate' },
-                    { label: 'Advanced', to: '/tutorial/arduino/projects/advanced' },
+                    {
+                        label: 'Beginner',
+                        to: '/tutorial/arduino/projects/beginner',
+                        children: [
+                            { label: 'LED Blink', to: '/tutorial/arduino/projects/beginner/led-blink' },
+                            { label: 'Traffic Light', to: '/tutorial/arduino/projects/beginner/traffic-light' },
+                            { label: 'Temperature Monitor', to: '/tutorial/arduino/projects/beginner/temperature-monitor' },
+                            { label: 'Servo Sweep', to: '/tutorial/arduino/projects/beginner/servo-sweep' },
+                        ],
+                    },
+                    {
+                        label: 'Intermediate',
+                        to: '/tutorial/arduino/projects/intermediate',
+                        children: [
+                            { label: 'LCD Weather Station', to: '/tutorial/arduino/projects/intermediate/lcd-weather-station' },
+                            { label: 'Ultrasonic Range Finder', to: '/tutorial/arduino/projects/intermediate/ultrasonic-range-finder' },
+                            { label: 'IR Remote Car', to: '/tutorial/arduino/projects/intermediate/ir-remote-car' },
+                            { label: 'Bluetooth Chat', to: '/tutorial/arduino/projects/intermediate/bluetooth-chat' },
+                        ],
+                    },
+                    {
+                        label: 'Advanced',
+                        to: '/tutorial/arduino/projects/advanced',
+                        children: [
+                            { label: 'IoT Smart Home', to: '/tutorial/arduino/projects/advanced/smart-home' },
+                            { label: 'GPS Tracker', to: '/tutorial/arduino/projects/advanced/gps-tracker' },
+                            { label: 'Plant Monitor', to: '/tutorial/arduino/projects/advanced/plant-monitor' },
+                            { label: 'Security System', to: '/tutorial/arduino/projects/advanced/security-system' },
+                        ],
+                    },
                 ],
             },
         ],

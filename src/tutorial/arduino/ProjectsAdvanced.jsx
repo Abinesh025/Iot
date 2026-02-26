@@ -6,24 +6,28 @@ const projects = [
         desc: 'Build a web-controlled smart home system. Arduino reads sensors, ESP8266 WiFi module sends data to a cloud dashboard with real-time monitoring.',
         components: ['Arduino Mega', 'ESP8266 WiFi', 'Relay Module', 'DHT22', 'PIR Sensor', 'OLED Display'],
         difficulty: 'Hard',
+        slug: 'smart-home',
     },
     {
         title: 'GPS Tracker with LoRa',
         desc: 'Create a long-range GPS tracking device that transmits location data via LoRa to a base station with live map display.',
         components: ['Arduino Nano', 'NEO-6M GPS', 'SX1278 LoRa', 'Li-Po Battery', 'Antenna'],
         difficulty: 'Hard',
+        slug: 'gps-tracker',
     },
     {
         title: 'Plant Monitoring System',
         desc: 'Automated plant care with soil moisture, light, and temperature sensors. Triggers water pump and sends alerts via MQTT.',
         components: ['Arduino Uno', 'Soil Moisture Sensor', 'LDR', 'DHT11', 'Water Pump', 'Relay', 'ESP8266'],
         difficulty: 'Hard',
+        slug: 'plant-monitor',
     },
     {
         title: 'Security System with Face Detection',
         desc: 'Combine Arduino with a camera module and OpenCV (via serial to PC) for a DIY facial recognition door lock.',
         components: ['Arduino Mega', 'Servo Lock', 'PIR Sensor', 'Buzzer', 'USB Camera', 'Python/OpenCV'],
         difficulty: 'Expert',
+        slug: 'security-system',
     },
 ]
 
@@ -51,10 +55,14 @@ export default function ProjectsAdvanced() {
 
             <div className="space-y-4">
                 {projects.map((p) => (
-                    <div key={p.title} className="p-5 rounded-xl bg-surface-900/40 border border-surface-800/50 hover:border-red-500/20 transition-colors">
+                    <Link
+                        key={p.title}
+                        to={`/tutorial/arduino/projects/advanced/${p.slug}`}
+                        className="block p-5 rounded-xl bg-surface-900/40 border border-surface-800/50 hover:border-red-500/30 hover:bg-surface-900/60 transition-all group"
+                    >
                         <div className="flex items-start justify-between gap-4">
                             <div>
-                                <h3 className="text-base font-semibold text-surface-50 mb-1">{p.title}</h3>
+                                <h3 className="text-base font-semibold text-surface-50 mb-1 group-hover:text-red-300 transition-colors">{p.title}</h3>
                                 <p className="text-surface-400 text-sm leading-relaxed mb-3">{p.desc}</p>
                                 <div className="flex flex-wrap gap-2">
                                     {p.components.map((c) => (
@@ -62,14 +70,17 @@ export default function ProjectsAdvanced() {
                                     ))}
                                 </div>
                             </div>
-                            <span className={`shrink-0 px-2.5 py-1 rounded-md text-xs font-medium ${p.difficulty === 'Expert'
+                            <div className="flex items-center gap-2 shrink-0">
+                                <span className={`px-2.5 py-1 rounded-md text-xs font-medium ${p.difficulty === 'Expert'
                                     ? 'bg-purple-500/10 text-purple-400'
                                     : 'bg-red-500/10 text-red-400'
-                                }`}>
-                                {p.difficulty}
-                            </span>
+                                    }`}>
+                                    {p.difficulty}
+                                </span>
+                                <svg className="w-4 h-4 text-surface-600 group-hover:text-red-400 transition-colors" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}><path strokeLinecap="round" strokeLinejoin="round" d="M13 7l5 5m0 0l-5 5m5-5H6" /></svg>
+                            </div>
                         </div>
-                    </div>
+                    </Link>
                 ))}
             </div>
 

@@ -6,24 +6,28 @@ const projects = [
         desc: 'Display real-time temperature and humidity on a 16×2 LCD using DHT22 sensor and I2C adapter.',
         components: ['Arduino Uno', 'DHT22', 'LCD 16×2 (I2C)', 'Breadboard'],
         difficulty: 'Medium',
+        slug: 'lcd-weather-station',
     },
     {
         title: 'Ultrasonic Range Finder',
         desc: 'Measure distance with HC-SR04 and display results on an OLED screen. Add a buzzer alert for proximity warning.',
         components: ['Arduino Uno', 'HC-SR04', 'OLED SSD1306', 'Passive Buzzer'],
         difficulty: 'Medium',
+        slug: 'ultrasonic-range-finder',
     },
     {
         title: 'IR Remote-Controlled Car',
         desc: 'Build a small robot car controlled via an IR remote. Uses L298N motor driver and IR receiver.',
         components: ['Arduino Uno', 'L298N Driver', '2× DC Motors', 'IR Receiver', 'IR Remote'],
         difficulty: 'Medium',
+        slug: 'ir-remote-car',
     },
     {
         title: 'Bluetooth Serial Chat',
         desc: 'Send and receive text messages between your phone and Arduino via HC-05 Bluetooth module.',
         components: ['Arduino Uno', 'HC-05 Module', 'Jumper Wires'],
         difficulty: 'Medium',
+        slug: 'bluetooth-chat',
     },
 ]
 
@@ -51,10 +55,14 @@ export default function ProjectsIntermediate() {
 
             <div className="space-y-4">
                 {projects.map((p) => (
-                    <div key={p.title} className="p-5 rounded-xl bg-surface-900/40 border border-surface-800/50 hover:border-yellow-500/20 transition-colors">
+                    <Link
+                        key={p.title}
+                        to={`/tutorial/arduino/projects/intermediate/${p.slug}`}
+                        className="block p-5 rounded-xl bg-surface-900/40 border border-surface-800/50 hover:border-yellow-500/30 hover:bg-surface-900/60 transition-all group"
+                    >
                         <div className="flex items-start justify-between gap-4">
                             <div>
-                                <h3 className="text-base font-semibold text-surface-50 mb-1">{p.title}</h3>
+                                <h3 className="text-base font-semibold text-surface-50 mb-1 group-hover:text-yellow-300 transition-colors">{p.title}</h3>
                                 <p className="text-surface-400 text-sm leading-relaxed mb-3">{p.desc}</p>
                                 <div className="flex flex-wrap gap-2">
                                     {p.components.map((c) => (
@@ -62,11 +70,14 @@ export default function ProjectsIntermediate() {
                                     ))}
                                 </div>
                             </div>
-                            <span className="shrink-0 px-2.5 py-1 rounded-md bg-yellow-500/10 text-yellow-400 text-xs font-medium">
-                                {p.difficulty}
-                            </span>
+                            <div className="flex items-center gap-2 shrink-0">
+                                <span className="px-2.5 py-1 rounded-md bg-yellow-500/10 text-yellow-400 text-xs font-medium">
+                                    {p.difficulty}
+                                </span>
+                                <svg className="w-4 h-4 text-surface-600 group-hover:text-yellow-400 transition-colors" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}><path strokeLinecap="round" strokeLinejoin="round" d="M13 7l5 5m0 0l-5 5m5-5H6" /></svg>
+                            </div>
                         </div>
-                    </div>
+                    </Link>
                 ))}
             </div>
 
