@@ -1,10 +1,11 @@
 import ModuleContent from "../../components/ModuleContent";
+import YoutubeEmbed from "../../components/YoutubeEmbed";
 import lora1 from "../../assets/ArdinoConnectivity/lora/lora1.jpg";
 import lora2 from "../../assets/ArdinoConnectivity/lora/lora2.jpg";
 import lora3 from "../../assets/ArdinoConnectivity/lora/lora3.jpg";
 
 export default function ArduinoLoRa() {
-    
+
     const images = [
         lora1,
         lora2,
@@ -209,24 +210,11 @@ void loop() {
             </div>
 
             {/* YouTube Tutorial */}
-                                <div className="mt-6 p-5 rounded-xl bg-surface-900/40 border border-surface-800/50 w-fit">
-    <h3 className="text-base font-semibold text-surface-100 mb-2">
-        📺 Recommended Video Tutorial
-    </h3>
+            <div className="mt-6">
+                <h3 className="text-base font-semibold text-surface-100 mb-3">📺 Recommended Video Tutorial</h3>
+                <YoutubeEmbed id="7TRaUO3egsE" title="Arduino LoRa SX1278 — Long Range Communication Tutorial" />
+            </div>
 
-    <iframe
-        width="560"
-        height="315"
-        src="https://www.youtube.com/embed/7TRaUO3egsE?si=809AZODI4_8mo_e-"
-        title="YouTube video player"
-        frameBorder="0"
-        allowFullScreen
-    ></iframe>
-
-    <p className="mt-2 text-sm text-surface-200">
-        Arduino Ethernet Shield W5100 — Web Server Tutorial (YouTube)
-    </p>
-</div>
             {/* Expected Output */}
             <div className="mt-6 p-5 rounded-xl bg-surface-900/40 border border-surface-800/50">
                 <h3 className="text-base font-semibold text-surface-100 mb-2">Expected Output</h3>
@@ -271,6 +259,3 @@ Received: Hello LoRa #2 | RSSI: -52`}
     );
 }
 
-
-
-<iframe width="560" height="315" src="https://www.youtube.com/embed/7TRaUO3egsE?si=809AZODI4_8mo_e-" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>

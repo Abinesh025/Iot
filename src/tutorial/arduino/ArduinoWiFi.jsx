@@ -1,4 +1,5 @@
 import ModuleContent from "../../components/ModuleContent";
+import YoutubeEmbed from "../../components/YoutubeEmbed";
 import wifi1 from "../../assets/ArdinoConnectivity/WIFI/wifi-1.jpg"
 import wifi2 from "../../assets/ArdinoConnectivity/WIFI/wifi-2.jpg"
 import wifi3 from "../../assets/ArdinoConnectivity/WIFI/wifi-3.jpg"
@@ -153,24 +154,10 @@ void sendCommand(String cmd, int timeout) {
             </div>
 
             {/* YouTube Tutorial */}
-                        <div className="mt-6 p-5 rounded-xl bg-surface-900/40 border border-surface-800/50 w-fit">
-                <h3 className="text-base font-semibold text-surface-100 mb-2">
-                    📺 Recommended Video Tutorial
-                </h3>
-
-            <iframe
-                width="560"
-                height="315"
-                src="https://www.youtube.com/embed/cja6T7BgP2Q?si=Kjnno1tXx7mSEl2y"
-                title="YouTube video player"
-                frameBorder="0"
-                allowFullScreen
-            ></iframe>
-
-    <p className="mt-2 text-sm text-surface-200">
-        Arduino + ESP8266 — WiFi Web Server Project Tutorial (YouTube)
-    </p>
-</div>
+            <div className="mt-6">
+                <h3 className="text-base font-semibold text-surface-100 mb-3">📺 Recommended Video Tutorial</h3>
+                <YoutubeEmbed id="cja6T7BgP2Q" title="Arduino + ESP8266 — WiFi Web Server Project Tutorial" />
+            </div>
 
             {/* Expected Output */}
             <div className="mt-6 p-5 rounded-xl bg-surface-900/40 border border-surface-800/50">

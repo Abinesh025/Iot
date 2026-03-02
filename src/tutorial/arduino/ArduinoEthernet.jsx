@@ -1,4 +1,5 @@
 import ModuleContent from "../../components/ModuleContent";
+import YoutubeEmbed from "../../components/YoutubeEmbed";
 import ether1 from "../../assets/ArdinoConnectivity/Ethernet/ether1.jpg";
 import ether2 from "../../assets/ArdinoConnectivity/Ethernet/ether2.jpg";
 import ethernet from "../../assets/ArdinoConnectivity/Ethernet/ethrnet.webp";
@@ -190,24 +191,11 @@ void loop() {
             </div>
 
             {/* YouTube Tutorial */}
-                <div className="mt-6 p-5 rounded-xl bg-surface-900/40 border border-surface-800/50 w-fit">
-    <h3 className="text-base font-semibold text-surface-100 mb-2">
-        📺 Recommended Video Tutorial
-    </h3>
+            <div className="mt-6">
+                <h3 className="text-base font-semibold text-surface-100 mb-3">📺 Recommended Video Tutorial</h3>
+                <YoutubeEmbed id="9ja6DzO0MMc" title="Arduino Ethernet Shield W5100 — Web Server Tutorial" />
+            </div>
 
-    <iframe
-        width="560"
-        height="315"
-        src="https://www.youtube.com/embed/9ja6DzO0MMc"
-        title="YouTube video player"
-        frameBorder="0"
-        allowFullScreen
-    ></iframe>
-
-    <p className="mt-2 text-sm text-surface-200">
-        Arduino Ethernet Shield W5100 — Web Server Tutorial (YouTube)
-    </p>
-</div>
 
             {/* Expected Output */}
             <div className="mt-6 p-5 rounded-xl bg-surface-900/40 border border-surface-800/50">

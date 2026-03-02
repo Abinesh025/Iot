@@ -1,35 +1,72 @@
 import { Link } from 'react-router-dom'
 
+const sections = [
+    {
+        title: 'Introduction to Raspberry Pi',
+        desc: 'Understand what Raspberry Pi is, its history, purpose, and why it\'s the favourite single-board computer for makers and engineers.',
+        to: '/tutorial/raspberry-pi/introduction',
+    },
+    {
+ 
+        title: 'Getting Started',
+        desc: 'Flash Raspberry Pi OS, connect peripherals, and boot your Pi for the first time — step by step.',
+        to: '/tutorial/raspberry-pi/getting-started',
+    },
+    {
+        title: 'GPIO & Hardware',
+        desc: 'Control LEDs, buttons, sensors, and motors through the 40-pin GPIO header using Python.',
+        to: '/tutorial/raspberry-pi/gpio',
+    },
+    {
+        title: 'Python Libraries',
+        desc: 'Master RPi.GPIO, gpiozero, pigpio and other essential libraries for hardware programming.',
+        to: '/tutorial/raspberry-pi/python-libraries',
+    },
+    {
+        title: 'Networking & Linux',
+        desc: 'Set up SSH, static IPs, systemd services, and manage your Pi headlessly over the network.',
+        to: '/tutorial/raspberry-pi/networking',
+    },
+    {
+        title: 'IoT Projects',
+        desc: 'Build real-world IoT projects with MQTT, Node-RED, InfluxDB, and Grafana dashboards.',
+        to: '/tutorial/raspberry-pi/iot-projects',
+    },
+]
+
 export default function RaspberryPiHome() {
     return (
         <div>
+            {/* Breadcrumb */}
             <nav className="flex items-center gap-2 text-sm text-surface-500 mb-8">
                 <Link to="/" className="hover:text-primary-400 transition-colors">Tutorials</Link>
                 <span>/</span>
                 <span className="text-raspberry font-medium">Raspberry Pi</span>
             </nav>
 
-            <div className="text-center py-16">
-                <div className="w-20 h-20 rounded-2xl bg-raspberry/10 flex items-center justify-center text-raspberry mx-auto mb-6">
-                    <svg className="w-10 h-10" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
-                        <path strokeLinecap="round" strokeLinejoin="round" d="M9 17.25v1.007a3 3 0 01-.879 2.122L7.5 21h9l-.621-.621A3 3 0 0115 18.257V17.25m6-12V15a2.25 2.25 0 01-2.25 2.25H5.25A2.25 2.25 0 013 15V5.25m18 0A2.25 2.25 0 0018.75 3H5.25A2.25 2.25 0 003 5.25m18 0V12a2.25 2.25 0 01-2.25 2.25H5.25A2.25 2.25 0 013 12V5.25" />
-                    </svg>
-                </div>
-                <h1 className="text-3xl font-bold text-surface-50 mb-3">Raspberry Pi Tutorials</h1>
-                <p className="text-surface-400 text-lg mb-6 max-w-md mx-auto">
-                    Comprehensive Raspberry Pi tutorials are coming soon. Topics will include GPIO, Python, Linux, networking, and full-stack IoT projects.
-                </p>
-                <div className="flex flex-wrap justify-center gap-2 mb-8">
-                    {['Getting Started', 'GPIO Programming', 'Python Scripts', 'Server Setup', 'Camera Module', 'Home Automation'].map((t) => (
-                        <span key={t} className="px-3 py-1 rounded-md bg-raspberry/10 text-raspberry text-xs font-medium">{t}</span>
-                    ))}
-                </div>
-                <Link
-                    to="/"
-                    className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-raspberry text-surface-50 font-semibold hover:bg-raspberry/90 transition-colors"
-                >
-                    ← Back to All Tutorials
-                </Link>
+            <h1 className="text-3xl sm:text-4xl font-bold text-surface-50 mb-3">
+                Raspberry Pi <span className="text-raspberry">Tutorials</span>
+            </h1>
+            <p className="text-surface-400 text-lg mb-10 max-w-2xl leading-relaxed">
+                From your very first boot to building full IoT systems — master Raspberry Pi
+                development with our comprehensive, hands-on guide.
+            </p>
+
+            {/* Section grid */}
+            <div className="grid sm:grid-cols-2 gap-4">
+                {sections.map((s) => (
+                    <Link
+                        key={s.to}
+                        to={s.to}
+                        className="group p-5 rounded-xl bg-surface-900/40 border border-surface-800/50 hover:border-raspberry/30 hover:bg-surface-800/30 transition-all duration-200"
+                    >
+                        {/* <div className="text-2xl mb-3">{s.icon}</div> */}
+                        <h3 className="text-base font-semibold text-surface-50 mb-1 group-hover:text-raspberry transition-colors">
+                            {s.title}
+                        </h3>
+                        <p className="text-surface-400 text-sm leading-relaxed">{s.desc}</p>
+                    </Link>
+                ))}
             </div>
         </div>
     )

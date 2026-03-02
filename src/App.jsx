@@ -53,8 +53,30 @@ const GPSTracker = lazy(() => import('./tutorial/arduino/projects/GPSTracker'))
 const PlantMonitor = lazy(() => import('./tutorial/arduino/projects/PlantMonitor'))
 const SecuritySystem = lazy(() => import('./tutorial/arduino/projects/SecuritySystem'))
 
-/* Raspberry Pi & ESP32 placeholders */
+/* Raspberry Pi */
 const RaspberryPiHome = lazy(() => import('./tutorial/raspberrypi/RaspberryPiHome'))
+const WhatIsRaspberryPi = lazy(() => import('./tutorial/raspberrypi/WhatIsRaspberryPi'))
+const RpiHistory = lazy(() => import('./tutorial/raspberrypi/RpiHistory'))
+const RpiFoundation = lazy(() => import('./tutorial/raspberrypi/RpiFoundation'))
+const RpiVersions = lazy(() => import('./tutorial/raspberrypi/RpiVersions'))
+const RpiPi3 = lazy(() => import('./tutorial/raspberrypi/RpiPi3'))
+const RpiPi4 = lazy(() => import('./tutorial/raspberrypi/RpiPi4'))
+const RpiPi5 = lazy(() => import('./tutorial/raspberrypi/RpiPi5'))
+const RpiPiZero = lazy(() => import('./tutorial/raspberrypi/RpiPiZero'))
+const RpiComparison = lazy(() => import('./tutorial/raspberrypi/RpiComparison'))
+const RpiProgramming = lazy(() => import('./tutorial/raspberrypi/RpiProgramming'))
+const RpiPython = lazy(() => import('./tutorial/raspberrypi/RpiPython'))
+const RpiGPIO = lazy(() => import('./tutorial/raspberrypi/RpiGPIO'))
+const RpiCProg = lazy(() => import('./tutorial/raspberrypi/RpiCProg'))
+const RpiSamples = lazy(() => import('./tutorial/raspberrypi/RpiSamples'))
+const RpiWebServer = lazy(() => import('./tutorial/raspberrypi/RpiWebServer'))
+const RpiHttpMethods = lazy(() => import('./tutorial/raspberrypi/RpiHttpMethods'))
+const RpiHtmlForm = lazy(() => import('./tutorial/raspberrypi/RpiHtmlForm'))
+const RpiPhpHandling = lazy(() => import('./tutorial/raspberrypi/RpiPhpHandling'))
+const RpiMysqlDatabase = lazy(() => import('./tutorial/raspberrypi/RpiMysqlDatabase'))
+const RpiRealtimeMonitoring = lazy(() => import('./tutorial/raspberrypi/RpiRealtimeMonitoring'))
+
+/* ESP32 */
 const ESP32Home = lazy(() => import('./tutorial/esp32/ESP32Home'))
 
 /* ── Loading fallback ── */
@@ -122,6 +144,26 @@ export default function App() {
           {/* Raspberry Pi */}
           <Route path="/tutorial/raspberry-pi" element={<TutorialLayout category="raspberrypi" />}>
             <Route index element={<RaspberryPiHome />} />
+            <Route path="introduction" element={<WhatIsRaspberryPi />} />
+            <Route path="introduction/history" element={<RpiHistory />} />
+            <Route path="introduction/foundation" element={<RpiFoundation />} />
+            <Route path="versions" element={<RpiVersions />} />
+            <Route path="versions/pi3" element={<RpiPi3 />} />
+            <Route path="versions/pi4" element={<RpiPi4 />} />
+            <Route path="versions/pi5" element={<RpiPi5 />} />
+            <Route path="versions/pi-zero" element={<RpiPiZero />} />
+            <Route path="versions/comparison" element={<RpiComparison />} />
+            <Route path="programming" element={<RpiProgramming />} />
+            <Route path="programming/python" element={<RpiPython />} />
+            <Route path="programming/gpio" element={<RpiGPIO />} />
+            <Route path="programming/c" element={<RpiCProg />} />
+            <Route path="programming/samples" element={<RpiSamples />} />
+            <Route path="web-server" element={<RpiWebServer />} />
+            <Route path="web-server/http-methods" element={<RpiHttpMethods />} />
+            <Route path="web-server/html-form" element={<RpiHtmlForm />} />
+            <Route path="web-server/php-handling" element={<RpiPhpHandling />} />
+            <Route path="web-server/mysql-database" element={<RpiMysqlDatabase />} />
+            <Route path="web-server/realtime-monitoring" element={<RpiRealtimeMonitoring />} />
           </Route>
 
           {/* ESP32 */}

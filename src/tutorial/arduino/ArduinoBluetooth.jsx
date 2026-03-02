@@ -1,4 +1,5 @@
 import ModuleContent from "../../components/ModuleContent";
+import YoutubeEmbed from "../../components/YoutubeEmbed";
 import bl1 from "../../assets/ArdinoConnectivity/Bluetooth/bl1.jpg";
 import bl2 from "../../assets/ArdinoConnectivity/Bluetooth/bl2.jpg";
 import bl3 from "../../assets/ArdinoConnectivity/Bluetooth/bl3.jpg";
@@ -151,24 +152,11 @@ void loop() {
             </div>
 
             {/* YouTube Tutorial */}
-                        <div className="mt-6 p-5 rounded-xl bg-surface-900/40 border border-surface-800/50 w-fit">
-                <h3 className="text-base font-semibold text-surface-100 mb-2">
-                    📺 Recommended Video Tutorial
-                </h3>
+            <div className="mt-6">
+                <h3 className="text-base font-semibold text-surface-100 mb-3">📺 Recommended Video Tutorial</h3>
+                <YoutubeEmbed id="aQcJ4uHdQEA" title="Arduino Bluetooth HC-05 — Wireless Control Tutorial" />
+            </div>
 
-            <iframe
-                width="560"
-                height="315"
-                src="https://www.youtube.com/embed/aQcJ4uHdQEA?si=gPoRLA0bH92fk82"
-                title="YouTube video player"
-                frameBorder="0"
-                allowFullScreen
-            ></iframe>
-
-    <p className="mt-2 text-sm text-surface-200">
-        Arduino Bluetooth HC-05 — Wireless Control Tutorial  (YouTube)
-    </p>
-</div>
             {/* Expected Output */}
             <div className="mt-6 p-5 rounded-xl bg-surface-900/40 border border-surface-800/50">
                 <h3 className="text-base font-semibold text-surface-100 mb-2">Expected Output</h3>

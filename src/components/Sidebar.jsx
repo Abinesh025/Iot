@@ -88,6 +88,44 @@ const menuConfigs = {
         color: 'text-raspberry',
         items: [
             { label: 'Overview', to: '/tutorial/raspberry-pi' },
+            {
+                label: 'Introduction',
+                children: [
+                    { label: 'What is Raspberry Pi?', to: '/tutorial/raspberry-pi/introduction' },
+                    { label: 'History & Purpose', to: '/tutorial/raspberry-pi/introduction/history' },
+                    { label: 'Developed by Raspberry Pi Foundation', to: '/tutorial/raspberry-pi/introduction/foundation' },
+                ],
+            },
+            {
+                label: 'Versions & Models',
+                children: [
+                    { label: 'Raspberry Pi 3 Model B', to: '/tutorial/raspberry-pi/versions/pi3' },
+                    { label: 'Raspberry Pi 4 Model B', to: '/tutorial/raspberry-pi/versions/pi4' },
+                    { label: 'Raspberry Pi 5', to: '/tutorial/raspberry-pi/versions/pi5' },
+                    { label: 'Raspberry Pi Zero', to: '/tutorial/raspberry-pi/versions/pi-zero' },
+                    { label: 'Comparison Table', to: '/tutorial/raspberry-pi/versions/comparison' },
+                ],
+            },
+            {
+                label: 'Programming',
+                children: [
+                    { label: 'Python Basics', to: '/tutorial/raspberry-pi/programming/python' },
+                    { label: 'GPIO Programming', to: '/tutorial/raspberry-pi/programming/gpio' },
+                    { label: 'C Programming', to: '/tutorial/raspberry-pi/programming/c' },
+                    { label: 'Sample Codes', to: '/tutorial/raspberry-pi/programming/samples' },
+                ],
+            },
+            {
+                label: 'Web Server Setup & IoT',
+                children: [
+                    { label: 'Overview', to: '/tutorial/raspberry-pi/web-server' },
+                    { label: 'HTTP GET & POST Methods', to: '/tutorial/raspberry-pi/web-server/http-methods' },
+                    { label: 'Creating HTML Form', to: '/tutorial/raspberry-pi/web-server/html-form' },
+                    { label: 'PHP Form Handling', to: '/tutorial/raspberry-pi/web-server/php-handling' },
+                    { label: 'Storing Data in MySQL', to: '/tutorial/raspberry-pi/web-server/mysql-database' },
+                    { label: 'Real-Time Monitoring', to: '/tutorial/raspberry-pi/web-server/realtime-monitoring' },
+                ],
+            },
         ],
     },
     esp32: {
