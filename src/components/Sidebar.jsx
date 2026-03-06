@@ -133,6 +133,54 @@ const menuConfigs = {
         color: 'text-esp32',
         items: [
             { label: 'Overview', to: '/tutorial/esp32' },
+            { label: 'What is ESP32?', to: '/tutorial/esp32/introduction' },
+            {
+                label: 'Modules',
+                children: [
+                    { label: 'All Modules', to: '/tutorial/esp32/modules' },
+                    { label: 'ESP32-WROOM-32', to: '/tutorial/esp32/modules/wroom32' },
+                    { label: 'ESP32-WROVER', to: '/tutorial/esp32/modules/wrover' },
+                    { label: 'ESP32-S2', to: '/tutorial/esp32/modules/s2' },
+                    { label: 'ESP32-S3', to: '/tutorial/esp32/modules/s3' },
+                    { label: 'ESP32-C3', to: '/tutorial/esp32/modules/c3' },
+                    { label: 'ESP32-CAM', to: '/tutorial/esp32/modules/cam' },
+                ],
+            },
+            {
+                label: 'Protocols',
+                children: [
+                    { label: 'All Protocols', to: '/tutorial/esp32/protocols' },
+                    { label: 'ESP32 Wi-Fi', to: '/tutorial/esp32/protocols/wifi' },
+                    { label: 'ESP32 MQTT', to: '/tutorial/esp32/protocols/mqtt' },
+                    { label: 'ESP32 Bluetooth', to: '/tutorial/esp32/protocols/bluetooth' },
+                    { label: 'ESP32 BLE', to: '/tutorial/esp32/protocols/ble' },
+                    { label: 'ESP32 ESP-NOW', to: '/tutorial/esp32/protocols/espnow' },
+                    { label: 'ESP32 WebSocket', to: '/tutorial/esp32/protocols/websocket' },
+                ],
+            },
+            {
+                label: 'Sensors',
+                children: [
+                    { label: 'All Sensors', to: '/tutorial/esp32/sensors' },
+                    { label: 'DHT11 Temperature Sensor', to: '/tutorial/esp32/sensors/dht11' },
+                    { label: 'Ultrasonic Sensor (HC-SR04)', to: '/tutorial/esp32/sensors/ultrasonic' },
+                    { label: 'PIR Motion Sensor (HC-SR501)', to: '/tutorial/esp32/sensors/pir' },
+                    { label: 'LDR Light Sensor', to: '/tutorial/esp32/sensors/ldr' },
+                    { label: 'Gas Sensor (MQ-2)', to: '/tutorial/esp32/sensors/gas' },
+                ],
+            },
+            {
+                label: 'Features',
+                children: [
+                    { label: 'ADCandDAC', to: '/tutorial/esp32/features/adcanddac' },
+                    { label: 'BluetoothSupport', to: '/tutorial/esp32/features/bluetooth' },
+                    { label: 'BuiltInWifi', to: '/tutorial/esp32/features/builtin' },
+                    { label: 'DualCoreProcessor', to: '/tutorial/esp32/features/dual' },
+                    { label: 'GpioPins', to: '/tutorial/esp32/features/gpio' },
+                    { label: 'LowPowerConsumption', to: '/tutorial/esp32/features/lowepower' },
+                    { label: 'PWMControl', to: '/tutorial/esp32/features/pwm' },
+                ],
+            }
         ],
     },
 }

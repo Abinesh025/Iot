@@ -1,5 +1,7 @@
 import { useState } from 'react'
 import { Link } from 'react-router-dom'
+import MetaData from '../components/MetaData'
+
 
 const categories = [
     {
@@ -82,60 +84,6 @@ const categories = [
                 <path strokeLinecap="round" strokeLinejoin="round" d="M8.288 15.038a5.25 5.25 0 017.424 0M5.106 11.856c3.807-3.808 9.98-3.808 13.788 0M1.924 8.674c5.565-5.565 14.587-5.565 20.152 0M12 20.5h.01" />
             </svg>
         ),
-    },
-    {
-        id: 'raspberrypi-pico',
-        name: 'Raspberry Pi Pico',
-        description: 'Learn microcontroller programming with Raspberry Pi Pico, explore GPIO, sensors, MicroPython, and build embedded projects.',
-        to: '/tutorial/raspberrypi-pico',
-        color: 'from-primary-500/20 to-primary-500/5',
-        borderColor: 'border-primary-500/40',
-        textColor: 'text-primary-400',
-        glowColor: 'shadow-primary-500/20',
-        bgAccent: 'bg-primary-500/10',
-        topics: ['What is Pico?', 'GPIO & Pinout', 'MicroPython Setup', 'Sensors & Modules', 'Projects'],
-        specs: [
-            { label: 'MCU', value: 'RP2040' },
-            { label: 'CPU', value: 'Dual-core 133 MHz' },
-            { label: 'RAM', value: '264 KB SRAM' },
-            { label: 'Flash', value: '2 MB' },
-            { label: 'GPIO Pins', value: '26' },
-            { label: 'Language', value: 'MicroPython / C' },
-        ],
-        badge: 'MicroPython',
-        badgeColor: 'bg-primary-500/20 text-primary-400 border-primary-500/30',
-        icon: (
-            <svg className="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
-                <path strokeLinecap="round" strokeLinejoin="round" d="M12 3v2.25m0 13.5V21m8.25-9H21M3 12H2.25m15.364 6.364l-1.591-1.591M6.227 6.227L4.636 4.636m12.728 0l-1.591 1.591M6.227 17.773l-1.591 1.591M9 12h6M12 9v6" />
-            </svg>
-        ),
-    },
-    {
-        id: 'esp8266',
-        name: 'ESP8266',
-        description: 'Learn IoT development using ESP8266, connect to WiFi, control devices remotely, and build smart projects.',
-        to: '/tutorial/esp8266',
-        color: 'from-amber-500/20 to-amber-500/5',
-        borderColor: 'border-amber-500/40',
-        textColor: 'text-amber-400',
-        glowColor: 'shadow-amber-500/20',
-        bgAccent: 'bg-amber-500/10',
-        topics: ['What is ESP8266?', 'WiFi & Networking', 'NodeMCU Setup', 'Sensors & IoT', 'Projects'],
-        specs: [
-            { label: 'CPU', value: 'Tensilica L106' },
-            { label: 'Clock Speed', value: '80 / 160 MHz' },
-            { label: 'RAM', value: '80 KB' },
-            { label: 'Flash', value: '1–4 MB' },
-            { label: 'WiFi', value: '802.11 b/g/n' },
-            { label: 'GPIO Pins', value: '17' },
-        ],
-        badge: 'WiFi SoC',
-        badgeColor: 'bg-amber-500/20 text-amber-400 border-amber-500/30',
-        icon: (
-            <svg className="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
-                <path strokeLinecap="round" strokeLinejoin="round" d="M2.25 12h19.5M4.5 9.75c2.25-2.25 12.75-2.25 15 0M6.75 7.5c3.75-3.75 6.75-3.75 10.5 0M9 15h.01M12 15h.01M15 15h.01" />
-            </svg>
-        ),
     }
 ]
 
@@ -145,16 +93,11 @@ function CategoryCard({ cat }) {
     return (
         <Link
             to={cat.to}
-            className={`group relative overflow-hidden rounded-2xl bg-gradient-to-br ${cat.color} border border-surface-800/50 transition-all duration-400 block`}
-            style={{
-                borderColor: hovered ? undefined : undefined,
-                boxShadow: hovered ? `0 20px 60px -10px var(--tw-shadow-color, rgba(0,0,0,0.4))` : '0 4px 24px rgba(0,0,0,0.2)',
-                transform: hovered ? 'translateY(-6px) scale(1.02)' : 'translateY(0) scale(1)',
-                transition: 'transform 0.35s cubic-bezier(0.34,1.56,0.64,1), box-shadow 0.35s ease, border-color 0.3s ease',
-            }}
+            className={`group relative overflow-hidden rounded-2xl bg-gradient-to-br ${cat.color} border border-surface-800/50 block transform transition-all duration-300 ease-out hover:scale-105 hover:-translate-y-1 hover:shadow-2xl min-h-[320px]`}
             onMouseEnter={() => setHovered(true)}
             onMouseLeave={() => setHovered(false)}
         >
+            <MetaData title={"E.G.S. Pillay Engineering College"} />
             {/* Animated border glow */}
             <div
                 className={`absolute inset-0 rounded-2xl border-2 ${cat.borderColor} transition-opacity duration-300 pointer-events-none`}

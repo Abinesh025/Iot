@@ -1,6 +1,8 @@
 import { Suspense, lazy } from 'react'
 import { Routes, Route } from 'react-router-dom'
 import Navbar from './components/Navbar'
+import Footer from './components/Footer'
+
 
 /* ── Lazy-loaded pages ── */
 const TutorialHome = lazy(() => import('./pages/TutorialHome'))
@@ -78,6 +80,42 @@ const RpiRealtimeMonitoring = lazy(() => import('./tutorial/raspberrypi/RpiRealt
 
 /* ESP32 */
 const ESP32Home = lazy(() => import('./tutorial/esp32/ESP32Home'))
+const WhatIsESP32 = lazy(() => import('./tutorial/esp32/WhatIsESP32'))
+const ESP32Protocols = lazy(() => import('./tutorial/esp32/ESP32Protocols'))
+const ESP32Sensors = lazy(() => import('./tutorial/esp32/ESP32Sensors'))
+const ESP32Modules = lazy(() => import('./tutorial/esp32/ESP32Modules'))
+
+/* ESP32 Protocol Pages */
+const WifiProtocol = lazy(() => import('./tutorial/esp32/protocols/WifiProtocol'))
+const MQTTProtocol = lazy(() => import('./tutorial/esp32/protocols/MQTTProtocol'))
+const BluetoothProtocol = lazy(() => import('./tutorial/esp32/protocols/BluetoothProtocol'))
+const BLEProtocol = lazy(() => import('./tutorial/esp32/protocols/BLEProtocol'))
+const ESPNOWProtocol = lazy(() => import('./tutorial/esp32/protocols/ESPNOWProtocol'))
+const WebSocketProtocol = lazy(() => import('./tutorial/esp32/protocols/WebSocketProtocol'))
+
+/* ESP32 Module Pages */
+const WROOM32Module = lazy(() => import('./tutorial/esp32/modules/WROOM32Module'))
+const WROVERModule = lazy(() => import('./tutorial/esp32/modules/WROVERModule'))
+const ESP32S2Module = lazy(() => import('./tutorial/esp32/modules/ESP32S2Module'))
+const ESP32S3Module = lazy(() => import('./tutorial/esp32/modules/ESP32S3Module'))
+const ESP32C3Module = lazy(() => import('./tutorial/esp32/modules/ESP32C3Module'))
+const ESP32CAMModule = lazy(() => import('./tutorial/esp32/modules/ESP32CAMModule'))
+
+/* ESP32 Sensor Pages */
+const DHT11Sensor = lazy(() => import('./tutorial/esp32/sensors/DHT11Sensor'))
+const UltrasonicSensor = lazy(() => import('./tutorial/esp32/sensors/UltrasonicSensor'))
+const PIRSensor = lazy(() => import('./tutorial/esp32/sensors/PIRSensor'))
+const LDRSensor = lazy(() => import('./tutorial/esp32/sensors/LDRSensor'))
+const GasSensor = lazy(() => import('./tutorial/esp32/sensors/GasSensor'))
+
+/* ESP32 features Pages */
+const ADCand = lazy(() => import('./tutorial/esp32/features/ADCandDAC'))
+const Bluetooth = lazy(() => import('./tutorial/esp32/features/BluetoothSupport'))
+const BuiltIn = lazy(() => import('./tutorial/esp32/features/BuiltInWiFi'))
+const DualCore = lazy(() => import('./tutorial/esp32/features/DualCoreProcessor'))
+const GPIO = lazy(() => import('./tutorial/esp32/features/GPIOPins'))
+const Low = lazy(() => import('./tutorial/esp32/features/LowPowerConsumption'))
+const PWM = lazy(() => import('./tutorial/esp32/features/PWMControl'))
 
 /* ── Loading fallback ── */
 function LoadingSpinner() {
@@ -94,9 +132,11 @@ function LoadingSpinner() {
 export default function App() {
   return (
     <div className="min-h-screen">
+
       <Navbar />
       <Suspense fallback={<LoadingSpinner />}>
         <Routes>
+
           <Route path="/" element={<TutorialHome />} />
 
           {/* Arduino nested routes */}
@@ -169,12 +209,42 @@ export default function App() {
           {/* ESP32 */}
           <Route path="/tutorial/esp32" element={<TutorialLayout category="esp32" />}>
             <Route index element={<ESP32Home />} />
+            <Route path="introduction" element={<WhatIsESP32 />} />
+            <Route path="modules" element={<ESP32Modules />} />
+            <Route path="modules/wroom32" element={<WROOM32Module />} />
+            <Route path="modules/wrover" element={<WROVERModule />} />
+            <Route path="modules/s2" element={<ESP32S2Module />} />
+            <Route path="modules/s3" element={<ESP32S3Module />} />
+            <Route path="modules/c3" element={<ESP32C3Module />} />
+            <Route path="modules/cam" element={<ESP32CAMModule />} />
+            <Route path="protocols" element={<ESP32Protocols />} />
+            <Route path="protocols/wifi" element={<WifiProtocol />} />
+            <Route path="protocols/mqtt" element={<MQTTProtocol />} />
+            <Route path="protocols/bluetooth" element={<BluetoothProtocol />} />
+            <Route path="protocols/ble" element={<BLEProtocol />} />
+            <Route path="protocols/espnow" element={<ESPNOWProtocol />} />
+            <Route path="protocols/websocket" element={<WebSocketProtocol />} />
+            <Route path="sensors" element={<ESP32Sensors />} />
+            <Route path="sensors/dht11" element={<DHT11Sensor />} />
+            <Route path="sensors/ultrasonic" element={<UltrasonicSensor />} />
+            <Route path="sensors/pir" element={<PIRSensor />} />
+            <Route path="sensors/ldr" element={<LDRSensor />} />
+            <Route path="sensors/gas" element={<GasSensor />} />
+            <Route path="features/adcanddac" element={<ADCand  />} />
+            <Route path="features/bluetooth" element={<Bluetooth />} />
+            <Route path="features/builtin" element={<BuiltIn />} />
+            <Route path="features/dual" element={<DualCore />} />
+            <Route path="features/gpio" element={<GPIO />} />
+            <Route path="features/lowepower" element={<Low />} />
+            <Route path="features/pwm" element={<PWM />} />
           </Route>
 
           {/* Catch-all */}
           <Route path="*" element={<ComingSoon />} />
+
         </Routes>
       </Suspense>
+      <Footer />
     </div>
   )
 }
