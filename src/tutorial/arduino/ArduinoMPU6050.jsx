@@ -1,7 +1,7 @@
 import ModuleContent from "../../components/ModuleContent";
 import mpuu1 from "../../assets/ArdinoSensor/MPU-3/MPU-1.jpg";
 import mpuu2 from "../../assets/ArdinoSensor/MPU-3/MPU-2.png";
-import mpuu3 from "../../assets/ArdinoSensor/MPU-3/MPU-3.jpg";
+import mpuu3 from "../../assets/ArdinoSensor/MPU-3/mpu-3.jpg";
 
 // Replace these with your own images
 const mpu1 = mpuu1;
