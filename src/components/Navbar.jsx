@@ -3,7 +3,7 @@ import logo from "../assets/egs logo.webp"
 import nba from "../assets/nba-logo.svg"
 import annau from "../assets/annau.svg"
 import Nacc from "../assets/NAAC.png"
-import Nirf from "../assets/NIRF.webp"
+import Nirf from "../assets/nirf.webp"
 import Aicte from "../assets/aicte.png"
 
 const accreditationLogos = [
