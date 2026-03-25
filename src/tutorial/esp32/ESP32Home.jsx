@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import { Link } from 'react-router-dom'
+import MetaData from '../../components/MetaData'
 
 /* ── Accordion Item ── */
 function AccordionItem({ title, children }) {
@@ -48,7 +49,7 @@ export default function ESP32Home() {
                 <span>/</span>
                 <span className="text-esp32 font-medium">ESP32</span>
             </nav>
-
+             <MetaData title={"Esp32"} />
             {/* Hero */}
             <div className="flex items-start gap-4 mb-4">
                 <div className="w-14 h-14 rounded-2xl bg-esp32/10 flex items-center justify-center text-esp32 shrink-0">

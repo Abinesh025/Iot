@@ -45,7 +45,7 @@ export default function RpiPython() {
                 </div>
 
                 {/* Python Tutorial Video */}
-                <YoutubeEmbed id="_uQrJ0TkZlc" title="Python Tutorial for Beginners" />
+                {/* <YoutubeEmbed id="_uQrJ0TkZlc" title="Python Tutorial for Beginners" /> */}
 
                 {/* Section 1 — Why Python */}
                 <h2 className="text-xl font-bold text-surface-50 mt-10 mb-4 flex items-center gap-2">

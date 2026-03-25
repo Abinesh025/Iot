@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom'
+import MetaData from '../../components/MetaData'
 
 const sections = [
     {
@@ -36,6 +37,7 @@ const sections = [
 export default function ArduinoHome() {
     return (
         <div>
+              <MetaData title={"Ardino"} />
             {/* Breadcrumb */}
             <nav className="flex items-center gap-2 text-sm text-surface-500 mb-8">
                 <Link to="/" className="hover:text-primary-400 transition-colors">Tutorials</Link>

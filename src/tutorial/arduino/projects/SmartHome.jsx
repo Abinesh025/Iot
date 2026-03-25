@@ -149,7 +149,7 @@ export default function SmartHome() {
                         { name: 'USB Cable (Type-B)', qty: '×1', note: 'For Mega + micro-USB for ESP8266' },
                     ].map((c) => (
                         <div key={c.name} className="flex items-start gap-3 p-3 rounded-xl bg-surface-900/40 border border-surface-800/50">
-                            <span className="text-primary-400 mt-0.5 text-lg">⚡</span>
+                            {/* <span className="text-primary-400 mt-0.5 text-lg">⚡</span> */}
                             <div>
                                 <p className="text-surface-100 text-sm font-semibold">{c.name} <span className="text-surface-500 font-normal">{c.qty}</span></p>
                                 <p className="text-surface-500 text-xs mt-0.5">{c.note}</p>
@@ -225,7 +225,7 @@ export default function SmartHome() {
                         { tip: 'Watchdog timer', detail: 'For 24/7 deployments, implement a software watchdog timer on the Mega to auto-reset if the loop hangs. Use the Watchdog.h library.' },
                     ].map((t) => (
                         <div key={t.tip} className="flex items-start gap-3 p-4 rounded-xl bg-yellow-500/5 border border-yellow-500/15">
-                            <span className="text-yellow-400 text-lg shrink-0">💡</span>
+                            {/* <span className="text-yellow-400 text-lg shrink-0">💡</span> */}
                             <div>
                                 <p className="text-surface-200 text-sm font-semibold">{t.tip}</p>
                                 <p className="text-surface-400 text-sm mt-0.5">{t.detail}</p>

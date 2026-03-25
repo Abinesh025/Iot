@@ -106,7 +106,7 @@ export default function TrafficLight() {
                         { name: 'USB Cable', qty: '×1', note: 'To upload and power the Arduino' },
                     ].map((c) => (
                         <div key={c.name} className="flex items-start gap-3 p-3 rounded-xl bg-surface-900/40 border border-surface-800/50">
-                            <span className="text-primary-400 mt-0.5 text-lg">⚡</span>
+                            {/* <span className="text-primary-400 mt-0.5 text-lg">⚡</span> */}
                             <div>
                                 <p className="text-surface-100 text-sm font-semibold">{c.name} <span className="text-surface-500 font-normal">{c.qty}</span></p>
                                 <p className="text-surface-500 text-xs mt-0.5">{c.note}</p>
@@ -182,7 +182,7 @@ export default function TrafficLight() {
                         { tip: 'Extend the project', detail: 'Add a second set of LEDs for the cross-traffic lane — a great next step after this project!' },
                     ].map((t) => (
                         <div key={t.tip} className="flex items-start gap-3 p-4 rounded-xl bg-yellow-500/5 border border-yellow-500/15">
-                            <span className="text-yellow-400 text-lg shrink-0">💡</span>
+                            {/* <span className="text-yellow-400 text-lg shrink-0">💡</span> */}
                             <div>
                                 <p className="text-surface-200 text-sm font-semibold">{t.tip}</p>
                                 <p className="text-surface-400 text-sm mt-0.5">{t.detail}</p>

@@ -32,9 +32,10 @@ export default function Navbar() {
 
                 {/* Desktop accreditation logos */}
                 <div className="hidden md:flex items-center gap-4 lg:gap-6 xl:gap-8 flex-wrap justify-end">
-                    {accreditationLogos.map((item) => (
+                    {accreditationLogos.map((item,index) => (
                         
                             <img
+                                key={index}
                                 src={item.src}
                                 alt={item.alt}
                                 className="h-8 lg:h-10 xl:h-12 w-auto object-contain transition-transform duration-200 hover:scale-105"

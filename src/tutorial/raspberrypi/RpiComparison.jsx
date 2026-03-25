@@ -146,9 +146,9 @@ export default function RpiComparison() {
                     Which Pi Should You Choose?
                 </h2>
                 <div className="grid sm:grid-cols-2 gap-4 mb-10">
-                    {highlights.map(({ icon, title, board, detail }) => (
+                    {highlights.map(({ title, board, detail }) => (
                         <div key={title} className="p-4 rounded-xl bg-surface-900/40 border border-surface-800/50 hover:border-raspberry/20 transition-colors">
-                            <div className="text-2xl mb-2">{icon}</div>
+                            {/* <div className="text-2xl mb-2">{icon}</div> */}
                             <p className="text-xs font-bold text-raspberry uppercase tracking-wide mb-0.5">{title}</p>
                             <h3 className="text-sm font-semibold text-surface-50 mb-1">{board}</h3>
                             <p className="text-xs text-surface-400 leading-relaxed">{detail}</p>

@@ -172,13 +172,13 @@ const menuConfigs = {
             {
                 label: 'Features',
                 children: [
-                    { label: 'ADCandDAC', to: '/tutorial/esp32/features/adcanddac' },
-                    { label: 'BluetoothSupport', to: '/tutorial/esp32/features/bluetooth' },
-                    { label: 'BuiltInWifi', to: '/tutorial/esp32/features/builtin' },
-                    { label: 'DualCoreProcessor', to: '/tutorial/esp32/features/dual' },
-                    { label: 'GpioPins', to: '/tutorial/esp32/features/gpio' },
-                    { label: 'LowPowerConsumption', to: '/tutorial/esp32/features/lowepower' },
-                    { label: 'PWMControl', to: '/tutorial/esp32/features/pwm' },
+                    { label: 'ADC & DAC', to: '/tutorial/esp32/features/adc-dac' },
+                    { label: 'Bluetooth Support', to: '/tutorial/esp32/features/bluetooth' },
+                    { label: 'Built-In Wi-Fi', to: '/tutorial/esp32/features/wifi' },
+                    { label: 'Dual-Core Processor', to: '/tutorial/esp32/features/dual-core' },
+                    { label: 'GPIO Pins', to: '/tutorial/esp32/features/gpio' },
+                    { label: 'Low Power Consumption', to: '/tutorial/esp32/features/low-power' },
+                    { label: 'PWM Control', to: '/tutorial/esp32/features/pwm' },
                 ],
             }
         ],

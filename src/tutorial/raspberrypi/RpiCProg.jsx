@@ -34,7 +34,7 @@ export default function RpiCProg() {
                 </div>
 
                 {/* C Programming Video */}
-                <YoutubeEmbed id="KJgsSFOSQv0" title="C Programming Full Course for Beginners" />
+                {/* <YoutubeEmbed id="KJgsSFOSQv0" title="C Programming Full Course for Beginners" /> */}
 
                 {/* Why C */}
                 <h2 className="text-xl font-bold text-surface-50 mt-10 mb-4 flex items-center gap-2">

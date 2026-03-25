@@ -19,7 +19,7 @@ function CodeBlock({ filename, children }) {
 function InfoCard({ icon, title, text }) {
     return (
         <div className="p-4 rounded-xl bg-surface-900/40 border border-surface-800/50 hover:border-raspberry/20 transition-colors">
-            <div className="text-xl mb-1">{icon}</div>
+            {/* <div className="text-xl mb-1">{icon}</div> */}
             <h4 className="text-sm font-semibold text-surface-50 mb-1">{title}</h4>
             <p className="text-xs text-surface-400 leading-relaxed">{text}</p>
         </div>

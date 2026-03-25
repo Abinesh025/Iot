@@ -2,6 +2,7 @@ import { Suspense, lazy } from 'react'
 import { Routes, Route } from 'react-router-dom'
 import Navbar from './components/Navbar'
 import Footer from './components/Footer'
+import ScrollToTop from './components/ScrollToTop'
 
 
 /* ── Lazy-loaded pages ── */
@@ -134,6 +135,7 @@ export default function App() {
     <div className="min-h-screen">
 
       <Navbar />
+      <ScrollToTop />
       <Suspense fallback={<LoadingSpinner />}>
         <Routes>
 
@@ -230,12 +232,12 @@ export default function App() {
             <Route path="sensors/pir" element={<PIRSensor />} />
             <Route path="sensors/ldr" element={<LDRSensor />} />
             <Route path="sensors/gas" element={<GasSensor />} />
-            <Route path="features/adcanddac" element={<ADCand  />} />
+            <Route path="features/adc-dac" element={<ADCand  />} />
             <Route path="features/bluetooth" element={<Bluetooth />} />
-            <Route path="features/builtin" element={<BuiltIn />} />
-            <Route path="features/dual" element={<DualCore />} />
+            <Route path="features/wifi" element={<BuiltIn />} />
+            <Route path="features/dual-core" element={<DualCore />} />
             <Route path="features/gpio" element={<GPIO />} />
-            <Route path="features/lowepower" element={<Low />} />
+            <Route path="features/low-power" element={<Low />} />
             <Route path="features/pwm" element={<PWM />} />
           </Route>
 

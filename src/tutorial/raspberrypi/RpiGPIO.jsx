@@ -58,7 +58,7 @@ export default function RpiGPIO() {
                 </div>
 
                 {/* GPIO Video */}
-                <YoutubeEmbed id="bbI43MqPE-I" title="Raspberry Pi GPIO Tutorial for Beginners" />
+                {/* <YoutubeEmbed id="bbI43MqPE-I" title="Raspberry Pi GPIO Tutorial for Beginners" /> */}
 
                 {/* Key concepts */}
                 <h2 className="text-xl font-bold text-surface-50 mt-10 mb-4 flex items-center gap-2">

@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import MetaData from '../components/MetaData'
 
@@ -87,27 +87,28 @@ const categories = [
     }
 ]
 
-function CategoryCard({ cat }) {
+function CategoryCard({ cat, canHover }) {
     const [hovered, setHovered] = useState(false)
+
+    const isActive = canHover && hovered
 
     return (
         <Link
             to={cat.to}
             className={`group relative overflow-hidden rounded-2xl bg-gradient-to-br ${cat.color} border border-surface-800/50 block transform transition-all duration-300 ease-out hover:scale-105 hover:-translate-y-1 hover:shadow-2xl min-h-[320px]`}
-            onMouseEnter={() => setHovered(true)}
+            onMouseEnter={() => canHover && setHovered(true)}
             onMouseLeave={() => setHovered(false)}
         >
-            <MetaData title={"E.G.S. Pillay Engineering College"} />
             {/* Animated border glow */}
             <div
                 className={`absolute inset-0 rounded-2xl border-2 ${cat.borderColor} transition-opacity duration-300 pointer-events-none`}
-                style={{ opacity: hovered ? 1 : 0 }}
+                style={{ opacity: isActive ? 1 : 0 }}
             />
 
             {/* Background shimmer on hover */}
             <div
                 className={`absolute inset-0 ${cat.bgAccent} transition-opacity duration-300 pointer-events-none`}
-                style={{ opacity: hovered ? 1 : 0 }}
+                style={{ opacity: isActive ? 1 : 0 }}
             />
 
             {/* Main content */}
@@ -116,12 +117,12 @@ function CategoryCard({ cat }) {
                 <div className="flex items-start justify-between mb-5">
                     <div
                         className={`w-14 h-14 rounded-xl bg-surface-950/60 flex items-center justify-center ${cat.textColor} transition-all duration-300`}
-                        style={{ transform: hovered ? 'scale(1.12) rotate(-4deg)' : 'scale(1) rotate(0deg)' }}
+                        style={{ transform: isActive ? 'scale(1.12) rotate(-4deg)' : 'scale(1) rotate(0deg)' }}
                     >
                         {cat.icon}
                     </div>
                     <span className={`px-2.5 py-1 rounded-full text-xs font-semibold border ${cat.badgeColor} transition-all duration-300`}
-                        style={{ opacity: hovered ? 1 : 0.7, transform: hovered ? 'scale(1.05)' : 'scale(1)' }}>
+                        style={{ opacity: isActive ? 1 : 0.7, transform: isActive ? 'scale(1.05)' : 'scale(1)' }}>
                         {cat.badge}
                     </span>
                 </div>
@@ -131,9 +132,9 @@ function CategoryCard({ cat }) {
                 <p
                     className="text-surface-400 text-sm leading-relaxed mb-5 transition-all duration-300"
                     style={{
-                        maxHeight: hovered ? '0px' : '72px',
-                        opacity: hovered ? 0 : 1,
-                        marginBottom: hovered ? '0' : '',
+                        maxHeight: isActive ? '0px' : '72px',
+                        opacity: isActive ? 0 : 1,
+                        marginBottom: isActive ? '0' : '',
                         overflow: 'hidden',
                     }}
                 >
@@ -144,9 +145,9 @@ function CategoryCard({ cat }) {
                 <div
                     className="overflow-hidden transition-all duration-400"
                     style={{
-                        maxHeight: hovered ? '220px' : '0px',
-                        opacity: hovered ? 1 : 0,
-                        transform: hovered ? 'translateY(0)' : 'translateY(12px)',
+                        maxHeight: isActive ? '220px' : '0px',
+                        opacity: isActive ? 1 : 0,
+                        transform: isActive ? 'translateY(0)' : 'translateY(12px)',
                         transition: 'max-height 0.35s ease, opacity 0.3s ease 0.05s, transform 0.35s ease',
                     }}
                 >
@@ -157,8 +158,8 @@ function CategoryCard({ cat }) {
                                 className="p-2.5 rounded-lg bg-surface-950/50 border border-surface-800/40"
                                 style={{
                                     transition: `opacity 0.25s ease ${i * 0.04}s, transform 0.3s ease ${i * 0.04}s`,
-                                    opacity: hovered ? 1 : 0,
-                                    transform: hovered ? 'translateY(0)' : 'translateY(8px)',
+                                    opacity: isActive ? 1 : 0,
+                                    transform: isActive ? 'translateY(0)' : 'translateY(8px)',
                                 }}
                             >
                                 <p className="text-surface-500 text-[10px] font-medium uppercase tracking-wide">{spec.label}</p>
@@ -176,8 +177,8 @@ function CategoryCard({ cat }) {
                             className="px-2.5 py-1 rounded-md bg-surface-950/40 text-surface-400 text-xs font-medium transition-all duration-200"
                             style={{
                                 transitionDelay: `${i * 30}ms`,
-                                transform: hovered ? 'scale(1.05)' : 'scale(1)',
-                                borderColor: hovered ? 'currentColor' : 'transparent',
+                                transform: isActive ? 'scale(1.05)' : 'scale(1)',
+                                borderColor: isActive ? 'currentColor' : 'transparent',
                             }}
                         >
                             {topic}
@@ -187,11 +188,11 @@ function CategoryCard({ cat }) {
 
                 {/* Arrow CTA */}
                 <div className={`flex items-center gap-1 text-sm font-semibold ${cat.textColor} transition-all duration-300`}
-                    style={{ gap: hovered ? '8px' : '4px' }}>
+                    style={{ gap: isActive ? '8px' : '4px' }}>
                     Explore tutorials
                     <svg
                         className="w-4 h-4 transition-transform duration-300"
-                        style={{ transform: hovered ? 'translateX(4px)' : 'translateX(0)' }}
+                        style={{ transform: isActive ? 'translateX(4px)' : 'translateX(0)' }}
                         fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}
                     >
                         <path strokeLinecap="round" strokeLinejoin="round" d="M13 7l5 5m0 0l-5 5m5-5H6" />
@@ -203,8 +204,20 @@ function CategoryCard({ cat }) {
 }
 
 export default function TutorialHome() {
+    // Only enable hover-expand on real pointer (mouse) devices.
+    // On touch screens, scrolling fires mouseenter on every card it passes.
+    const [canHover, setCanHover] = useState(false)
+    useEffect(() => {
+        const mq = window.matchMedia('(hover: hover) and (pointer: fine)')
+        setCanHover(mq.matches)
+        const handler = (e) => setCanHover(e.matches)
+        mq.addEventListener('change', handler)
+        return () => mq.removeEventListener('change', handler)
+    }, [])
+
     return (
         <div className="min-h-[calc(100vh-54px)]">
+            <MetaData title="E.G.S. Pillay Engineering College" />
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 lg:py-10">
 
                 {/* Header */}
@@ -221,7 +234,7 @@ export default function TutorialHome() {
                 {/* Category Cards */}
                 <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
                     {categories.map((cat) => (
-                        <CategoryCard key={cat.id} cat={cat} />
+                        <CategoryCard key={cat.id} cat={cat} canHover={canHover} />
                     ))}
                 </div>
             </div>

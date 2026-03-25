@@ -165,9 +165,9 @@ export default function RpiFoundation() {
                     Educational Programmes &amp; Initiatives
                 </h2>
                 <div className="grid sm:grid-cols-2 gap-4 mb-10">
-                    {programs.map(({ icon, title, desc }) => (
+                    {programs.map(({title, desc }) => (
                         <div key={title} className="p-4 rounded-xl bg-surface-900/40 border border-surface-800/50 hover:border-raspberry/20 transition-colors">
-                            <div className="text-2xl mb-2">{icon}</div>
+                            {/* <div className="text-2xl mb-2">{icon}</div> */}
                             <h3 className="text-sm font-semibold text-surface-50 mb-1">{title}</h3>
                             <p className="text-xs text-surface-400 leading-relaxed">{desc}</p>
                         </div>

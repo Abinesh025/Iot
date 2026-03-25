@@ -146,9 +146,9 @@ export default function RpiHistory() {
                     of people all over the world. The Pi serves many purposes across education, industry, and the maker community:
                 </p>
                 <div className="grid sm:grid-cols-2 gap-4 mb-10">
-                    {purposes.map(({ icon, title, desc }) => (
+                    {purposes.map(({  title, desc }) => (
                         <div key={title} className="p-4 rounded-xl bg-surface-900/40 border border-surface-800/50 hover:border-raspberry/20 transition-colors">
-                            <div className="text-2xl mb-2">{icon}</div>
+                            {/* <div className="text-2xl mb-2">{icon}</div> */}
                             <h3 className="text-sm font-semibold text-surface-50 mb-1">{title}</h3>
                             <p className="text-xs text-surface-400 leading-relaxed">{desc}</p>
                         </div>
